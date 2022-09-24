@@ -1,0 +1,28 @@
+# Treasure Hunter Game
+
+A treasure hunting game where the player controls a hunter to collect relics hidden in a maze. Whenever the hunter reaches the cell with a relic in it, the treasure hunter automatically collects that relic and another relic appears somewhere in the maze. There are 3 guardians in the maze that kill the hunter. If a guardian and the treasure hunter occupy the same cell, the guardian kills the treasure hunter and the player loses the game. The guardians cannot track the treasure hunter and instead move randomly. The maze is created using backtrack recursion via a depth first search algorithm.
+
+## Object Oriented Explanation
+
+
+The treasure hunter's movements are managed within the Game class. The Game class creates a new Hunter object and assigns it's
+position to the starting portion of the maze, which is defined in the Maze class, but in this case is just [1][1]. The Game class
+uses a Maze object to determine where to place the hunter. The Game class has various commands that can be accessed to move the
+hunter in a given direction. The direction input is acquired from the MainUI class as it is inputted from the user on the
+keyboard. All these different classes working in union are beneficial because it allows additional attributes to the hunter
+to be made by only changing the Hunter class. Furthermore, the way the command to move the hunter is inputted can be changed
+as well, as it is only obtained from the MainUI class, but if needed can be obtained from another class or method of input easily.
+
+The maze is created by making use of object-oriented programming. The Maze class creates a 2d array of MazeCell objects, here
+it assigns 1 portion of the 2d array as the Y position of the maze and the other portion as the X position. It creates the 2d
+array as big as needed, which is defined by the height and width attributes within the Maze class. Here it creates the maze by 
+first using the MazeCell objects in the 2d array to assign every value as a wall within the maze. Then the Maze class utilizes
+a backtrack recursion form of a depth first search algorithm to find a path through the maze by accessing every MazeCell object
+in the 2d array. Finally after fixing some lines within the code to better randomize the maze and adding additional loops, 
+it completes it. However, to display the maze the MainUI class must be used. This is because it is beneficial not to have 
+anything be displayed in the Maze class so that if the displaying component needed to be changed, for example to be impleneted into a 
+better UI rather than just terminal, it can be without having to change the logic of the Maze class. The MainUI class accesses each 
+element of the 2d array to determine what exists in each portion of the maze. It then outputs the specific character needed to be 
+outputted to accurately display the maze. If this were done without the use of OOD it would be far more of a challenge to change the 
+way the maze is displayed. The use of different classes and an object-oriented approach makes the code of the Maze be more organized, 
+and allows changes to be made much easier.
